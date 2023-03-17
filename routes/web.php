@@ -38,6 +38,8 @@ Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name
 
 Route::get('/admin/loguot', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
+Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+
 }); // End Admin Middleware
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class)->name('admin.login');
