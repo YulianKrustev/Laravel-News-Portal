@@ -57,20 +57,14 @@
                         </div>
                     </div> <!-- end card -->
 
-
-
                 </div> <!-- end col-->
 
                 <div class="col-lg-8 col-xl-8">
                     <div class="card">
                         <div class="card-body">
-
-
-
-
                             <div class="tab-pane" id="settings">
-                                <form>
-
+                                <form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data">
+                                    @csrf
                                     <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i>Admin
                                         Personal Info</h5>
                                     <div class="row">
@@ -84,7 +78,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="lastname" class="form-label">Name</label>
-                                                <input type="text" name="username" class="form-control"
+                                                <input type="text" name="name" class="form-control"
                                                     value="{{ $adminData->name }}">
                                             </div>
                                         </div> <!-- end col -->
@@ -115,7 +109,6 @@
                                             </div>
                                         </div>
                                     </div> <!-- end row -->
-
 
                                     <div class="text-end">
                                         <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i

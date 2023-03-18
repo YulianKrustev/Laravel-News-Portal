@@ -40,6 +40,8 @@ Route::get('/admin/loguot', [AdminController::class, 'AdminLogout'])->name('admi
 
 Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
 
+Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+
 }); // End Admin Middleware
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class)->name('admin.login');
