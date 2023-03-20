@@ -29,16 +29,16 @@
                                 <span>How can I help you?</span>
                             </a>
 
-                           
 
-                           
+
+
 
                         </div>
                     </div>
                 </form>
             </li>
 
-            
+
 
             <li class="dropdown d-none d-lg-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen"
@@ -47,7 +47,7 @@
                 </a>
             </li>
 
-           
+
 
             <li class="dropdown d-none d-lg-inline-block topbar-dropdown">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown"
@@ -107,8 +107,8 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item active">
                             <div class="notify-icon">
-                                <img src="{{ asset('backend/assets/images/users/user-1.jpg')}} " class="img-fluid rounded-circle"
-                                    alt="" />
+                                <img src="{{ asset('backend/assets/images/users/user-1.jpg') }} "
+                                    class="img-fluid rounded-circle" alt="" />
                             </div>
                             <p class="notify-details">Test</p>
                             <p class="text-muted mb-0 user-msg">
@@ -116,12 +116,12 @@
                             </p>
                         </a>
 
-                       
+
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="notify-icon">
-                                <img src="{{ asset('backend/assets/images/users/user-4.jpg')}}" class="img-fluid rounded-circle"
-                                    alt="" />
+                                <img src="{{ asset('backend/assets/images/users/user-4.jpg') }}"
+                                    class="img-fluid rounded-circle" alt="" />
                             </div>
                             <p class="notify-details">Karen Robinson</p>
                             <p class="text-muted mb-0 user-msg">
@@ -152,17 +152,17 @@
             </li>
 
             @php
-                $id = Auth::user()->id;
+                $id = Auth::id();
                 $adminData = App\Models\User::find($id);
             @endphp
 
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
                     href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}" alt="user-image"
-                        class="rounded-circle">
+                    <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
+                        alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
-                        {{ $adminData->name}} <i class="mdi mdi-chevron-down"></i>
+                        {{ $adminData->name }} <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -200,7 +200,7 @@
                 </div>
             </li>
 
-          
+
 
         </ul>
 
@@ -246,9 +246,9 @@
                 <!-- End mobile menu toggle-->
             </li>
 
-           
 
-            
+
+
         </ul>
         <div class="clearfix"></div>
     </div>

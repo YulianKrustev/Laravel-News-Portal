@@ -17,6 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+         
         return view('auth.login');
     }
 
@@ -37,7 +38,12 @@ class AuthenticatedSessionController extends Controller
             $url = '/dashboard';
         }
 
-        return redirect()->intended($url);
+        $notification = [
+                'message' => 'Admin Login Successfully',
+                'alert-type' => 'info'
+            ];
+
+        return redirect()->intended($url)->with($notification);
     }
 
     /**

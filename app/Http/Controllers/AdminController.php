@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function AdminDashboard(){
+
         return view('admin.index');
     } // End Function
 
@@ -21,11 +22,18 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/admin/logout/page');
+         $notification = [
+                'message' => 'Admin Logout Successfully',
+                'alert-type' => 'info'
+            ];
+
+        return redirect('/admin/logout/page')->with($notification);
     } // End Function
 
 
     public function AdminLogin(){
+
+         
 
         return view('admin.admin_login');
 
@@ -33,6 +41,7 @@ class AdminController extends Controller
 
 
     public function AdminLogoutPage(){
+       
 
         return view('admin.admin_logout');
 
@@ -40,7 +49,7 @@ class AdminController extends Controller
 
     public function AdminProfile(){
 
-        $id = Auth::user()->id;
+        $id = Auth::id();
         $adminData = User::find($id);
 
         return view('admin.admin_profile_view', compact('adminData'));
@@ -50,7 +59,7 @@ class AdminController extends Controller
 
     public function AdminProfileStore(Request $request){
 
-        $id = Auth::user()->id;
+        $id = Auth::id();
         $adminData = User::find($id);
 
         $adminData->name = $request->name;
