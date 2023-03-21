@@ -101,7 +101,6 @@ class AdminController extends Controller
             'old_password' => 'required',
             'new_password' => 'required|confirmed',
             
-
         ]);
 
         // Match the old password
@@ -110,7 +109,7 @@ class AdminController extends Controller
         }
 
         // Update the password
-        User::whereId(auth()->user()->id)->update([
+        User::whereId(Auth::id())->update([
             'password' => Hash::make($request->new_password)
         ]);
 
