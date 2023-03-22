@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
     Route::post('/user/profile/store', [UserController::class, 'UserProfileUpdate'])->name('user.profile.store');
+    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
 
     }); // End Admin Middleware
 
