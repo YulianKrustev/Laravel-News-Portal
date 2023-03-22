@@ -19,8 +19,8 @@ class UserController extends Controller
 
     public function UserProfileUpdate(Request $request){
 
-        $id = Auth::id();
-        $userData = User::find($id);
+        
+        $userData = $request->user();
 
         if ($request->file('photo')) {
 
@@ -52,6 +52,36 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login')->with("status", "User logout Successfully");
+
+    } // End Function
+
+    public function ChangePassword(){
+        $id = Auth::id();
+        $userData = User::find($id);
+
+        return view('frontend.change_password', compact('userData'));
+
+    } // End Function
+
+    public function UserChangePassword(Request $request){
+
+         $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            
+        ]);
+
+        // Match the old password
+        if (!Hash::check($request->old_password, Auth::user()->password)) {
+            return back()->with('error', "Old Password Doesn't match!");
+        }
+
+        // Update the password
+        $request->user()->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('status', "Password Changed Successfully!");
 
     } // End Function
 }

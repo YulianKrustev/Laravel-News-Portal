@@ -52,7 +52,9 @@
                                             <span class="wpcf7-form-control-wrap sub_title"><input type="password"
                                                     name="password" id="password" size="40"
                                                     class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                                    placeholder="Password"></span>
+                                                    placeholder="Password"> @error('password')
+                                        <span class="text-danger"> {{ $message }}</span>
+                                        @enderror</span>
                                         </div>
                                     </div>
 
@@ -64,7 +66,9 @@
                                             <span class="wpcf7-form-control-wrap sub_title"><input type="password"
                                                     name="password_confirmation" id="password_confirmation" size="40"
                                                     class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                                    placeholder="Confirm Password"></span>
+                                                    placeholder="Confirm Password"> @error('password_confirmation')
+                                        <span class="text-danger"> {{ $message }}</span>
+                                        @enderror</span>
                                         </div>
                                     </div>
                                 </div>
