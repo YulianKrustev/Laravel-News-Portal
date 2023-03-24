@@ -11,5 +11,9 @@ class CategoryController extends Controller
     public function AllCategory(){
         $categories = Category::latest()->get();
         return view('backend.category.category_all', compact('categories'));
-    }
+    } // End function
+
+    public function AddCategory(){
+        return view('backend.category.category_add');
+    } // End function
 }
