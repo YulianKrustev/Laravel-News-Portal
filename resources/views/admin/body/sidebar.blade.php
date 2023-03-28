@@ -21,8 +21,6 @@
 
                  <li class="menu-title mt-2">Menu</li>
 
-
-
                  <li>
                      <a href="#sidebarEcommerce" data-bs-toggle="collapse">
                          <i class="mdi mdi-cart-outline"></i>
@@ -36,6 +34,24 @@
                              </li>
                              <li>
                                  <a href="{{ route('add.category') }}">Add Category</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+
+                  <li>
+                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
+                         <i class="mdi mdi-cart-outline"></i>
+                         <span> SubCategory </span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <div class="collapse" id="sidebarEcommerce">
+                         <ul class="nav-second-level">
+                             <li>
+                                 <a href="{{ route('all.subcategory') }}">All SubCategory</a>
+                             </li>
+                             <li>
+                                 <a href="{{ route('add.subcategory') }}">Add SubCategory</a>
                              </li>
                          </ul>
                      </div>

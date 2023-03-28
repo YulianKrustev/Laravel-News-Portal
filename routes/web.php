@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,18 @@ Route::post('/category/store','StoreCategory')->name('category.store');
 Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
 Route::post('/category/update/','UpdateCategory')->name('category.update');
 Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+
+});
+
+// SubCategory all Routes
+Route::controller(SubCategoryController::class)->group(function(){
+
+Route::get('/all/subcategory','AllSubCategory')->name('all.subcategory');
+Route::get('/add/subcategory','AddSubCategory')->name('add.subcategory');
+Route::post('/subcategory/store','StoreSubCategory')->name('subcategory.store');
+Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
+Route::post('/subcategory/update/','UpdateSubCategory')->name('subcategory.update');
+Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
 
 });
 
