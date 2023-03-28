@@ -70,6 +70,7 @@ Route::get('/add/category','AddCategory')->name('add.category');
 Route::post('/category/store','StoreCategory')->name('category.store');
 Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
 Route::post('/category/update/','UpdateCategory')->name('category.update');
+Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 
 });
 

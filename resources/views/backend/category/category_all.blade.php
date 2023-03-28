@@ -41,7 +41,7 @@
                                             <td>{{ $item->category_name}}</td>
                                             <td>
                                                 <a href="{{ route('edit.category', $item->id) }}" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
-                                                <a href="" class="btn btn-danger rounded-pill waves-effect waves-light">Delete</a>
+                                                <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete" >Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
