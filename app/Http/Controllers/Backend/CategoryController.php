@@ -33,6 +33,36 @@ class CategoryController extends Controller
 
         return redirect()->route('all.category')->with($notification);
 
-    } // End Method
+    } // End function
+
+
+    public function EditCategory($id){
+
+        $category = Category::findOrFail($id);
+
+        return view('backend.category.category_edit', compact('category'));
+    } // End function
+
+    public function UpdateCategory(Request $request){
+
+        $id = $request->id;
+
+        Category::findOrFail($id)->update([
+            'category_name' => $request->category_name,
+            'category_slug' =>strtolower(str_replace(' ', '-', $request->category_name )),
+
+
+        ]);
+
+
+
+        $notification = [
+                'message' => 'Category Updated Successfully',
+                'alert-type' => 'success'
+            ];
+
+        return redirect()->route('all.category')->with($notification);
+
+    } // End function
 
 }
