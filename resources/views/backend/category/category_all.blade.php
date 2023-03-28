@@ -40,8 +40,8 @@
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $item->category_name}}</td>
                                             <td>
-                                                <a href="" class="btn btn-primary rounded-pill waves-effect waves-light"></a>
-                                                <a href="" class="btn btn-danger rounded-pill waves-effect waves-light"></a>
+                                                <a href="" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
+                                                <a href="" class="btn btn-danger rounded-pill waves-effect waves-light">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

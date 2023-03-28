@@ -29,11 +29,12 @@
                                 <div class="card">
                                     <div class="card-body">
 
-    <form id="myForm" method="post" action="">
+    <form id="myForm" method="POST" action="{{ route('category.store')}}">
+        @csrf
         <div class="row">
             <div class="form-group col-md-6 mb-3">
                 <label for="inputEmail4" class="form-label">Category Name </label>
-                <input type="text" name="category_name" class="form-control" id="inputEmail4" placeholder="Add Category">
+                <input type="text" name="category_name" class="form-control" id="inputEmail4" placeholder="Add Category"> 
             </div>
 
         </div>
