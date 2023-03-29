@@ -40,10 +40,10 @@ class SubCategoryController extends Controller
 
 
     public function EditSubCategory($id){
-
+        $categories = Category::latest()->get();
         $subcategory = SubCategory::findOrFail($id);
 
-        return view('backend.subcategory.subcategory_edit', compact('subcategory'));
+        return view('backend.subcategory.subcategory_edit', compact('subcategory', 'categories'));
     } // End function
 
     public function UpdateSubCategory(Request $request){
@@ -51,6 +51,7 @@ class SubCategoryController extends Controller
         $id = $request->id;
 
         SubCategory::findOrFail($id)->update([
+            'category_id' => $request->category_id,
             'subcategory_name' => $request->subcategory_name,
             'subcategory_slug' =>strtolower(str_replace(' ', '-', $request->subcategory_name )),
 

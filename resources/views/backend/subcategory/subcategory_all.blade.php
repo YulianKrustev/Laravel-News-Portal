@@ -14,7 +14,7 @@
                                 <a href="{{ route('add.subcategory') }}" class="btn btn-blue waves-effect waves-light">Add SubCategory</a>
                             </ol>
                         </div>
-                        <h4 class="page-title">Datatables</h4>
+                        <h4 class="page-title">All SubCategory</h4>
                     </div>
                 </div>
             </div>

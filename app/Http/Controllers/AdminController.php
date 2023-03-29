@@ -114,4 +114,13 @@ class AdminController extends Controller
         return back()->with('status', "Password Changed Successfully!");
 
     } // End Function
+
+
+    public function AllAdmin(){
+
+        $alladminuser = User::where('role', 'admin')->latest()->get();
+
+        return view('backend.admin.all_admin', compact('alladminuser'));
+
+    } // End Function
 }

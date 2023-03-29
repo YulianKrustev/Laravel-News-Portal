@@ -11,10 +11,10 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="{{ route('add.category') }}" class="btn btn-blue waves-effect waves-light">Add Category</a>
+                                <a href="{{ route('add.category') }}" class="btn btn-blue waves-effect waves-light">Add Admin</a>
                             </ol>
                         </div>
-                        <h4 class="page-title">All Category</h4>
+                        <h4 class="page-title">Datatables</h4>
                     </div>
                 </div>
             </div>
@@ -28,17 +28,33 @@
                                 <thead>
                                     <tr>
                                         <th>Sl</th>
-                                        <th>Category Name</th>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
 
 
                                 <tbody>
-                                    @foreach ($categories as $key => $item)
+                                    @foreach ($alladminuser as $key => $item)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
-                                            <td>{{ $item->category_name}}</td>
+                                            <td> <img id="showImage" src="{{ !empty($item->photo) ? url('upload/admin_images/' . $item->photo) : url('upload/no_image.jpg') }}"
+                                                    class="w-25 h-25" alt="profile-image"></td>
+                                            <td>{{ $item->name}}</td>
+                                            <td>{{ $item->email}}</td>
+                                            <td>{{ $item->phone}}</td>
+                                            <td>{{ $item->status}}</td>
+                                            <td>
+                                                @if ($item->status == 'active')
+                                                    <span class="badge badge-pill bg-success">Active</span>
+                                                @else
+                                                    <span class="badge badge-pill bg-danger">InActive</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{ route('edit.category', $item->id) }}" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
                                                 <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete" >Delete</a>

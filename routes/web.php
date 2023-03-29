@@ -87,4 +87,15 @@ Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcate
 
 });
 
+Route::controller(AdminController::class)->group(function(){
+
+Route::get('/all/admin','AllAdmin')->name('all.admin');
+// Route::get('/add/category','AddCategory')->name('add.category');
+// Route::post('/category/store','StoreCategory')->name('category.store');
+// Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
+// Route::post('/category/update/','UpdateCategory')->name('category.update');
+// Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+
+});
+
 }); // End Admin Middleware
