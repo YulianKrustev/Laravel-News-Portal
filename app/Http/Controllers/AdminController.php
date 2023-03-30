@@ -123,4 +123,73 @@ class AdminController extends Controller
         return view('backend.admin.all_admin', compact('alladminuser'));
 
     } // End Function
+
+    public function AddAdmin(){
+
+        return view('backend.admin.add_admin');
+
+    } // End Function
+
+    public function StoreAdmin(Request $request){
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->username);
+        $user->role = 'admin';
+        $user->status = 'inactive';
+        $user->save();
+
+        $notification = [
+                'message' => 'New Admin User Created Successfully',
+                'alert-type' => 'success'
+            ];
+
+        
+            return redirect()->back()->with($notification);
+
+    } // End Function
+
+    public function EditAdmin($id){
+
+        $user = User::findOrFail($id);
+
+        return view('backend.admin.edit_admin', compact('user'));
+
+    } // End Function
+
+    public function UpdateAdmin(Request $request){
+
+        $user = User::findOrFail($request->id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->save();
+
+        $notification = [
+                'message' => 'Admin User Updated Successfully',
+                'alert-type' => 'success'
+            ];
+
+        
+            return redirect()->back()->with($notification);
+
+    } // End Function
+
+
+    public function DeleteAdmin($id){
+
+        User::findOrFail($id)->delete();
+
+         $notification = [
+                'message' => 'Admin User Deleted Successfully',
+                'alert-type' => 'success'
+            ];
+
+        return redirect()->back()->with($notification);
+
+    } // End function
 }

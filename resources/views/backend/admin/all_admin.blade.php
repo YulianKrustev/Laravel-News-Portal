@@ -11,10 +11,10 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="{{ route('add.category') }}" class="btn btn-blue waves-effect waves-light">Add Admin</a>
+                                <a href="{{ route('add.admin') }}" class="btn btn-blue waves-effect waves-light">Add Admin</a>
                             </ol>
                         </div>
-                        <h4 class="page-title">Datatables</h4>
+                        <h4 class="page-title">All Admin Users</h4>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,6 @@
                                             <td>{{ $item->name}}</td>
                                             <td>{{ $item->email}}</td>
                                             <td>{{ $item->phone}}</td>
-                                            <td>{{ $item->status}}</td>
                                             <td>
                                                 @if ($item->status == 'active')
                                                     <span class="badge badge-pill bg-success">Active</span>
@@ -56,8 +55,8 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('edit.category', $item->id) }}" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
-                                                <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete" >Delete</a>
+                                                <a href="{{ route('edit.admin', $item->id) }}" class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
+                                                <a href="{{ route('delete.admin', $item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete" >Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

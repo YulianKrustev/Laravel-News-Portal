@@ -124,7 +124,7 @@
                                  <a href="{{ route('all.admin')}}">All Admin</a>
                              </li>
                              <li>
-                                 <a href="auth-logout.html">Add Admin</a>
+                                 <a href="{{ route('add.admin') }}">Add Admin</a>
                              </li>
 
                          </ul>
