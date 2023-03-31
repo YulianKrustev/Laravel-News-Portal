@@ -38,6 +38,8 @@ class AuthenticatedSessionController extends Controller
             $url = '/dashboard';
         }
 
+        
+
         $notification = [
                 'message' => 'Admin Login Successfully',
                 'alert-type' => 'info'

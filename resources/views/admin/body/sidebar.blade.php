@@ -1,3 +1,10 @@
+ @php
+     $id = Auth::id();
+     $userid = App\Models\User::find($id);
+     $status = $userid->status;
+ @endphp
+
+
  <div class="left-side-menu">
 
      <div class="h-100" data-simplebar>
@@ -19,6 +26,13 @@
                      </a>
                  </li>
 
+
+
+                 @if ($status == 'active')
+                     
+                
+                 
+
                  <li class="menu-title mt-2">Menu</li>
 
                  <li>
@@ -39,13 +53,13 @@
                      </div>
                  </li>
 
-                  <li>
-                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
+                 <li>
+                     <a href="#sidebarEcommerce1" data-bs-toggle="collapse">
                          <i class="mdi mdi-cart-outline"></i>
                          <span> SubCategory </span>
                          <span class="menu-arrow"></span>
                      </a>
-                     <div class="collapse" id="sidebarEcommerce">
+                     <div class="collapse" id="sidebarEcommerce1">
                          <ul class="nav-second-level">
                              <li>
                                  <a href="{{ route('all.subcategory') }}">All SubCategory</a>
@@ -121,7 +135,7 @@
                      <div class="collapse" id="sidebarAuth">
                          <ul class="nav-second-level">
                              <li>
-                                 <a href="{{ route('all.admin')}}">All Admin</a>
+                                 <a href="{{ route('all.admin') }}">All Admin</a>
                              </li>
                              <li>
                                  <a href="{{ route('add.admin') }}">Add Admin</a>
@@ -151,10 +165,10 @@
 
                  <li class="menu-title mt-2">Components</li>
 
-                 
 
-                
-                
+
+
+
 
                  <li>
                      <a href="#sidebarIcons" data-bs-toggle="collapse">
@@ -170,7 +184,7 @@
                              <li>
                                  <a href="icons-two-tone.html">Two Tone Icons</a>
                              </li>
-                          
+
                          </ul>
                      </div>
                  </li>
@@ -189,10 +203,13 @@
                              <li>
                                  <a href="forms-advanced.html">Advanced</a>
                              </li>
-                           
+
                          </ul>
                      </div>
                  </li>
+
+                 @endif
+
              </ul>
 
          </div>
