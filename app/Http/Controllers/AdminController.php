@@ -192,4 +192,32 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
 
     } // End function
+
+
+    public function InactiveAdminUser($id){
+
+        User::findOrFail($id)->update(['status' => 'inactive']);
+
+         $notification = [
+                'message' => 'Admin User Inactive',
+                'alert-type' => 'success'
+            ];
+
+        return redirect()->back()->with($notification);
+
+    } // End function
+
+
+    public function ActiveAdminUser($id){
+
+        User::findOrFail($id)->update(['status' => 'active']);
+
+         $notification = [
+                'message' => 'Admin User Active',
+                'alert-type' => 'success'
+            ];
+
+        return redirect()->back()->with($notification);
+
+    } // End function
 }
