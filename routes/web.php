@@ -8,6 +8,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\NewsPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,22 @@ Route::post('/admin/update/','UpdateAdmin')->name('admin.update');
 Route::get('/delete/admin/{id}','DeleteAdmin')->name('delete.admin');
 Route::get('/inactive/admin/user/{id}','InactiveAdminUser')->name('inactive.admin.user');
 Route::get('/active/admin/user/{id}','ActiveAdminUser')->name('active.admin.user');
+
+});
+
+}); // End Admin Middleware
+
+Route::middleware(['auth','role:admin'])->group(function() {
+
+// News Post all Routes
+Route::controller(NewsPostController::class)->group(function(){
+
+Route::get('/all/news/post','AllNewsPost')->name('all.news.post');
+// Route::get('/add/category','AddCategory')->name('add.category');
+// Route::post('/category/store','StoreCategory')->name('category.store');
+// Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
+// Route::post('/category/update/','UpdateCategory')->name('category.update');
+// Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 
 });
 

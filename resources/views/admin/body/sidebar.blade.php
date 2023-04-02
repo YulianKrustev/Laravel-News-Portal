@@ -71,6 +71,24 @@
                      </div>
                  </li>
 
+                  <li>
+                     <a href="#newspost" data-bs-toggle="collapse">
+                         <i class="mdi mdi-cart-outline"></i>
+                         <span> News Post Setting </span>
+                         <span class="menu-arrow"></span>
+                     </a>
+                     <div class="collapse" id="sidebarEcommerce1">
+                         <ul class="nav-second-level">
+                             <li>
+                                 <a href="{{ route('all.news.post') }}">All News Post</a>
+                             </li>
+                             <li>
+                                 <a href="{{ route('add.subcategory') }}">Add News Post</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+
                  <li>
                      <a href="#sidebarCrm" data-bs-toggle="collapse">
                          <i class="mdi mdi-account-multiple-outline"></i>
