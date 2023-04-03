@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('first_section_three')->nullable();
             $table->integer('first_section_nine')->nullable();
             $table->string('post_date')->nullable();
-            $table->string('post_month');
+            $table->string('post_month')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });

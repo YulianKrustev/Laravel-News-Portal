@@ -109,7 +109,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
 Route::controller(NewsPostController::class)->group(function(){
 
 Route::get('/all/news/post','AllNewsPost')->name('all.news.post');
-// Route::get('/add/category','AddCategory')->name('add.category');
+Route::get('/add/news/post','AddNewsPost')->name('add.news.post');
 // Route::post('/category/store','StoreCategory')->name('category.store');
 // Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
 // Route::post('/category/update/','UpdateCategory')->name('category.update');
