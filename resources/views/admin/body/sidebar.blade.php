@@ -77,7 +77,7 @@
                          <span> News Post Setting </span>
                          <span class="menu-arrow"></span>
                      </a>
-                     <div class="collapse" id="sidebarEcommerce1">
+                     <div class="collapse" id="newspost">
                          <ul class="nav-second-level">
                              <li>
                                  <a href="{{ route('all.news.post') }}">All News Post</a>
