@@ -84,10 +84,49 @@
 
                                     <div class="form-group col-md-6 mb-3">
                                         <div class="mb-3">
-                                                <img id="showImage" src="{{ url('upload/no_image.jpg') }}"
-                                                    class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
-                                            </div>
+                                            <img id="showImage" src="{{ url('upload/no_image.jpg') }}"
+                                                class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                        </div>
                                     </div>
+
+                                    <div class="form-group col-12 mb-3">
+                                        <label for="inputEmail4" class="form-label">News Details </label>
+                                        <textarea name="news_details"></textarea>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="inputEmail4" class="form-label">Tags </label>
+                                        <input type="text" class="selectize-close-btn" value="awesome">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-check mb-2 form-check-primary">
+                                                <input class="form-check-input" type="checkbox" value="1" name="breaking_news"
+                                                    id="customckeck1" >
+                                                <label class="form-check-label" for="customckeck1">Breaking News</label>
+                                            </div>
+                                            <div class="form-check mb-2 form-check-primary">
+                                                <input class="form-check-input" type="checkbox" value="1" name="top_slider"
+                                                    id="customckeck1" >
+                                                <label class="form-check-label" for="customckeck2">Top Slider</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-check mb-2 form-check-danger">
+                                                <input class="form-check-input" type="checkbox" value="1" name="first_section_three"
+                                                    id="customckeck1" >
+                                                <label class="form-check-label" for="customckeck3">First Section Three</label>
+                                            </div>
+                                            <div class="form-check mb-2 form-check-danger">
+                                                <input class="form-check-input" type="checkbox" value="1" name="first_section_nine"
+                                                    id="customckeck1" >
+                                                <label class="form-check-label" for="customckeck4">First Section Nine</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                 </div>
 
@@ -164,15 +203,15 @@
         });
     </script>
 
-     <script type="text/javascript">
-            $(document).ready(function() {
-                $('#image').change(function(e) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#showImage').attr('src', e.target.result)
-                    }
-                    reader.readAsDataURL(e.target.files['0'])
-                })
-            });
-        </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result)
+                }
+                reader.readAsDataURL(e.target.files['0'])
+            })
+        });
+    </script>
 @endsection
