@@ -48,12 +48,7 @@
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
                                         <select name='subcategory_id' class="form-select" id="example-select">
-                                            <option> Select One Subcategory </option>
-
-                                            @foreach ($subcategories as $subcategory)
-                                                <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}
-                                                </option>
-                                            @endforeach
+                                            <option></option>                     
 
 
                                         </select>
@@ -213,5 +208,32 @@
                 reader.readAsDataURL(e.target.files['0'])
             })
         });
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select[name="category_id"]').on('change', function(){
+                var category_id = $(this).val();
+                if (category_id) {
+                    $.ajax({
+                        url: "{{ url('/subcategory/ajax') }}/"+category_id,
+                        type: "GET",  
+                        dataType: "json", 
+                        success:function(data){
+                            $('select[name="subcategory_id"]').html('');
+                            var d =$('select[name="subcategory_id"]').empty();
+                            $.each(data, function(key, value){
+                                $('select[name="subcategory_id"]').append('<option value="'+ value.id +'"> ' + value.subcategory_name + '</option>');
+                            });
+                        },
+                    });
+                } else{
+                    alert('danger');
+                }
+            });
+        });
+        
     </script>
 @endsection

@@ -85,6 +85,7 @@ Route::post('/subcategory/store','StoreSubCategory')->name('subcategory.store');
 Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
 Route::post('/subcategory/update/','UpdateSubCategory')->name('subcategory.update');
 Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
+Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
 
 });
 
