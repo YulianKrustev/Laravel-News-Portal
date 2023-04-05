@@ -48,7 +48,7 @@
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
                                         <select name='subcategory_id' class="form-select" id="example-select">
-                                            <option></option>                     
+                                            <option></option>
 
 
                                         </select>
@@ -97,27 +97,29 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-check mb-2 form-check-primary">
-                                                <input class="form-check-input" type="checkbox" value="1" name="breaking_news"
-                                                    id="customckeck1" >
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    name="breaking_news" id="customckeck1">
                                                 <label class="form-check-label" for="customckeck1">Breaking News</label>
                                             </div>
                                             <div class="form-check mb-2 form-check-primary">
-                                                <input class="form-check-input" type="checkbox" value="1" name="top_slider"
-                                                    id="customckeck1" >
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    name="top_slider" id="customckeck1">
                                                 <label class="form-check-label" for="customckeck2">Top Slider</label>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <div class="form-check mb-2 form-check-danger">
-                                                <input class="form-check-input" type="checkbox" value="1" name="first_section_three"
-                                                    id="customckeck1" >
-                                                <label class="form-check-label" for="customckeck3">First Section Three</label>
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    name="first_section_three" id="customckeck1">
+                                                <label class="form-check-label" for="customckeck3">First Section
+                                                    Three</label>
                                             </div>
                                             <div class="form-check mb-2 form-check-danger">
-                                                <input class="form-check-input" type="checkbox" value="1" name="first_section_nine"
-                                                    id="customckeck1" >
-                                                <label class="form-check-label" for="customckeck4">First Section Nine</label>
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                    name="first_section_nine" id="customckeck1">
+                                                <label class="form-check-label" for="customckeck4">First Section
+                                                    Nine</label>
                                             </div>
                                         </div>
                                     </div>
@@ -213,27 +215,29 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('select[name="category_id"]').on('change', function(){
+        $(document).ready(function() {
+            $('select[name="category_id"]').on('change', function() {
                 var category_id = $(this).val();
+
                 if (category_id) {
                     $.ajax({
-                        url: "{{ url('/subcategory/ajax') }}/"+category_id,
-                        type: "GET",  
-                        dataType: "json", 
-                        success:function(data){
+                        url: "{{ url('/subcategory/ajax') }}"+category_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
                             $('select[name="subcategory_id"]').html('');
-                            var d =$('select[name="subcategory_id"]').empty();
-                            $.each(data, function(key, value){
-                                $('select[name="subcategory_id"]').append('<option value="'+ value.id +'"> ' + value.subcategory_name + '</option>');
+                            var d = $('select[name="subcategory_id"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="subcategory_id"]').append(
+                                    '<option value="' + value.id + '"> ' + value
+                                    .subcategory_name + '</option>');
                             });
                         },
                     });
-                } else{
+                } else {
                     alert('danger');
                 }
             });
         });
-        
     </script>
 @endsection
