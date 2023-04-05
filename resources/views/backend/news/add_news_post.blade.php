@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Category Name </label>
-                                        <select name='category_id' class="form-select" id="category_id">
+                                        <select name='category_id' class="form-select" id="example-select">
                                             <option> Select One Category </option>
 
                                             @foreach ($categories as $category)
@@ -47,7 +47,7 @@
 
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
-                                        <select name='subcategory_id' class="form-select" id="subcategory_id">
+                                        <select name='subcategory_id' class="form-select" id="example-select">
                                             <option></option>
 
 
