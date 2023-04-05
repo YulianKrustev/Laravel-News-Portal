@@ -87,6 +87,7 @@ Route::post('/subcategory/update/','UpdateSubCategory')->name('subcategory.updat
 Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
 Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
 
+
 });
 
 Route::controller(AdminController::class)->group(function(){
@@ -111,7 +112,7 @@ Route::controller(NewsPostController::class)->group(function(){
 
 Route::get('/all/news/post','AllNewsPost')->name('all.news.post');
 Route::get('/add/news/post','AddNewsPost')->name('add.news.post');
-// Route::post('/category/store','StoreCategory')->name('category.store');
+Route::post('/store/news/post','StoreNewsPost')->name('store.news.post');
 // Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
 // Route::post('/category/update/','UpdateCategory')->name('category.update');
 // Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');

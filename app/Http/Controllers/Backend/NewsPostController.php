@@ -25,4 +25,15 @@ class NewsPostController extends Controller
         return view('backend.news.add_news_post', compact('categories', 'subcategories', 'adminuser'));
         
     } // End function
+
+
+    public function StoreNewsPost(){
+        $categories = Category::latest()->get();
+        $subcategories = SubCategory::latest()->get();
+        $adminuser = User::where('role', 'admin')->latest()->get();
+        return view('backend.news.add_news_post', compact('categories', 'subcategories', 'adminuser'));
+        
+    } // End function
+
+
 }

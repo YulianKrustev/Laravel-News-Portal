@@ -29,12 +29,12 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form id="myForm" method="POST" action="{{ route('admin.store') }}">
+                            <form id="myForm" method="POST" action="{{ route('store.news.post') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Category Name </label>
-                                        <select name='category_id' class="form-select" id="example-select">
+                                        <select name='category_id' class="form-select" id="category_id">
                                             <option> Select One Category </option>
 
                                             @foreach ($categories as $category)
@@ -47,7 +47,7 @@
 
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
-                                        <select name='subcategory_id' class="form-select" id="example-select">
+                                        <select name='subcategory_id' class="form-select" id="subcategory_id">
                                             <option></option>
 
 
@@ -103,7 +103,7 @@
                                             </div>
                                             <div class="form-check mb-2 form-check-primary">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="top_slider" id="customckeck1">
+                                                    name="top_slider" id="customckeck2">
                                                 <label class="form-check-label" for="customckeck2">Top Slider</label>
                                             </div>
                                         </div>
@@ -111,13 +111,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-check mb-2 form-check-danger">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="first_section_three" id="customckeck1">
+                                                    name="first_section_three" id="customckeck3">
                                                 <label class="form-check-label" for="customckeck3">First Section
                                                     Three</label>
                                             </div>
                                             <div class="form-check mb-2 form-check-danger">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="first_section_nine" id="customckeck1">
+                                                    name="first_section_nine" id="customckeck4">
                                                 <label class="form-check-label" for="customckeck4">First Section
                                                     Nine</label>
                                             </div>
@@ -152,38 +152,16 @@
         $(document).ready(function() {
             $('#myForm').validate({
                 rules: {
-                    username: {
+                    news_title: {
                         required: true,
                     },
-                    name: {
-                        required: true,
-                    },
-                    email: {
-                        required: true,
-                    },
-                    phone: {
-                        required: true,
-                    },
-                    password: {
-                        required: true,
-                    },
+                    
                 },
                 messages: {
-                    username: {
-                        required: 'Please Enter User Name',
+                    news_title: {
+                        required: 'Please Enter News Title',
                     },
-                    name: {
-                        required: 'Please Enter Your Name',
-                    },
-                    email: {
-                        required: 'Please Enter Your Email',
-                    },
-                    phone: {
-                        required: 'Please Enter Your Phone',
-                    },
-                    password: {
-                        required: 'Please Enter Password',
-                    },
+                    
                 },
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
