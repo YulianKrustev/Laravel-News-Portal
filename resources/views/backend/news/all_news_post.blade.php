@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{ $key+1 }}</td>
                                             <td> <img id="showImage" src="{{ asset($item->image) }}"
-                                                    class="w-25 h-25" alt="profile-image"></td>
+                                                    class="w-100" alt="profile-image"></td>
                                             <td>{{ $item->news_title}}</td>
                                             <td>{{ $item->category_id}}</td>
                                             <td>{{ $item->user_id}}</td>
