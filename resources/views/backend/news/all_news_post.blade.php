@@ -45,10 +45,10 @@
                                             <td>{{ $key+1 }}</td>
                                             <td> <img id="showImage" src="{{ asset($item->image) }}"
                                                     class="w-100" alt="profile-image"></td>
-                                            <td>{{ $item->news_title}}</td>
-                                            <td>{{ $item->category_id}}</td>
-                                            <td>{{ $item->user_id}}</td>
-                                            <td>{{ Carbon\Carbon::parse($item->post_date)->diffForHumans() }}</td>
+                                            <td>{{ Str::limit($item->news_title, 20)}}</td>
+                                            <td>{{ $item['Category']['category_name']}}</td>
+                                            <td>{{ $item['User']['name']}}</td>
+                                            <td>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
                                             <td>
                                                 @if ($item->status == 1)
                                                     <span class="badge badge-pill bg-success">Active</span>
