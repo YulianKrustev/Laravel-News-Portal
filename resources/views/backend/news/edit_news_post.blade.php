@@ -14,10 +14,10 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
 
-                                <li class="breadcrumb-item active">Add News Post</li>
+                                <li class="breadcrumb-item active">Edit News Post</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Add News Post</h4>
+                        <h4 class="page-title">Edit News Post</h4>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                                             <option> Select One Category </option>
 
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                                <option {{ $news_post->category_id == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{ $category->category_name }}</option>
                                             @endforeach
 
 
@@ -48,7 +48,11 @@
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
                                         <select name='subcategory_id' class="form-select" id="example-select">
-                                            <option></option>
+                                            <option> Select One SubCategory </option>
+
+                                            @foreach ($subcategories as $subcategory)
+                                                <option {{ $news_post->subcategory_id == $subcategory->id ? 'selected' : ''}} value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+                                            @endforeach
 
 
                                         </select>
@@ -60,7 +64,7 @@
                                             <option> Select Writer </option>
 
                                             @foreach ($adminuser as $user)
-                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                <option {{ $news_post->user_id == $user->id ? 'selected' : ''}} value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach
 
 
@@ -69,7 +73,7 @@
 
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">News Title </label>
-                                        <input type="text" name="news_title" class="form-control" id="inputEmail4">
+                                        <input type="text" name="news_title" class="form-control" id="inputEmail4" value="{{ $news_post->news_title }}">
                                     </div>
 
                                     <div class="form-group col-md-6 mb-3">
@@ -79,31 +83,31 @@
 
                                     <div class="form-group col-md-6 mb-3">
                                         <div class="mb-3">
-                                            <img id="showImage" src="{{ url('upload/no_image.jpg') }}"
+                                            <img id="showImage" src="{{ asset($news_post->image) }}"
                                                 class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                                         </div>
                                     </div>
 
                                     <div class="form-group col-12 mb-3">
                                         <label for="inputEmail4" class="form-label">News Details </label>
-                                        <textarea name="news_details"></textarea>
+                                        <textarea name="news_details">{{ $news_post->news_details }}</textarea>
                                     </div>
 
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Tags </label>
-                                        <input type="text" name="tags" class="selectize-close-btn" value="awesome">
+                                        <input type="text" name="tags" class="selectize-close-btn" value="{{ $news_post->tags }}">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-check mb-2 form-check-primary">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="breaking_news" id="customckeck1">
+                                                    name="breaking_news" id="customckeck1" {{ $news_post->breaking_news == 1 ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="customckeck1">Breaking News</label>
                                             </div>
                                             <div class="form-check mb-2 form-check-primary">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="top_slider" id="customckeck2">
+                                                    name="top_slider" id="customckeck2" {{ $news_post->top_slider == 1 ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="customckeck2">Top Slider</label>
                                             </div>
                                         </div>
@@ -111,13 +115,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-check mb-2 form-check-danger">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="first_section_three" id="customckeck3">
+                                                    name="first_section_three" id="customckeck3" {{ $news_post->first_section_three == 1 ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="customckeck3">First Section
                                                     Three</label>
                                             </div>
                                             <div class="form-check mb-2 form-check-danger">
                                                 <input class="form-check-input" type="checkbox" value="1"
-                                                    name="first_section_nine" id="customckeck4">
+                                                    name="first_section_nine" id="customckeck4" {{ $news_post->first_section_nine == 1 ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="customckeck4">First Section
                                                     Nine</label>
                                             </div>
@@ -192,31 +196,30 @@
 
 
 
-     <script type="text/javascript">
-
-        $(document).ready(function(){
-            $('select[name="category_id"]').on('change', function(){
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select[name="category_id"]').on('change', function() {
                 var category_id = $(this).val();
+
                 if (category_id) {
                     $.ajax({
                         url: "{{ url('/subcategory/ajax') }}/"+category_id,
-                        type: "GET",  
-                        dataType: "json", 
-                        success:function(data){
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
                             $('select[name="subcategory_id"]').html('');
-                            var d =$('select[name="subcategory_id"]').empty();
-                            $.each(data, function(key, value){
-                                $('select[name="subcategory_id"]').append('<option value="'+ value.id +'"> ' + value.subcategory_name + '</option>');
+                            var d = $('select[name="subcategory_id"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="subcategory_id"]').append(
+                                    '<option value="' + value.id + '"> ' + value
+                                    .subcategory_name + '</option>');
                             });
                         },
                     });
-                } else{
+                } else {
                     alert('danger');
                 }
             });
         });
-        
-
-
     </script>
 @endsection

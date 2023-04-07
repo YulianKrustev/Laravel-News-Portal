@@ -73,6 +73,7 @@ Route::post('/category/store','StoreCategory')->name('category.store');
 Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
 Route::post('/category/update/','UpdateCategory')->name('category.update');
 Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
 
 });
 
@@ -85,7 +86,7 @@ Route::post('/subcategory/store','StoreSubCategory')->name('subcategory.store');
 Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
 Route::post('/subcategory/update/','UpdateSubCategory')->name('subcategory.update');
 Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
-Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
+
 
 
 });
@@ -113,7 +114,7 @@ Route::controller(NewsPostController::class)->group(function(){
 Route::get('/all/news/post','AllNewsPost')->name('all.news.post');
 Route::get('/add/news/post','AddNewsPost')->name('add.news.post');
 Route::post('/store/news/post','StoreNewsPost')->name('store.news.post');
-// Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
+Route::get('/edit/news/post/{id}','EditNewsPost')->name('edit.news.post');
 // Route::post('/category/update/','UpdateCategory')->name('category.update');
 // Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 
