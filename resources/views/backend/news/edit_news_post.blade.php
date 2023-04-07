@@ -29,8 +29,11 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form id="myForm" method="POST" action="{{ route('store.news.post') }}" enctype="multipart/form-data">
+                            <form id="myForm" method="POST" action="{{ route('update.news.post') }}" enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="hidden" name="id"value="{{ $news_post->id }}">
+
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Category Name </label>
