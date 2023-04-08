@@ -110,14 +110,14 @@ Route::middleware(['auth','role:admin'])->group(function() {
 
 // News Post all Routes
 Route::controller(NewsPostController::class)->group(function(){
-
 Route::get('/all/news/post','AllNewsPost')->name('all.news.post');
 Route::get('/add/news/post','AddNewsPost')->name('add.news.post');
 Route::post('/store/news/post','StoreNewsPost')->name('store.news.post');
 Route::get('/edit/news/post/{id}','EditNewsPost')->name('edit.news.post');
 Route::post('/update/news/post','UpdateNewsPost')->name('update.news.post');
 Route::get('/delete/news/post/{id}','DeleteNewsPost')->name('delete.news.post');
-
+Route::get('/inactive/news/post/{id}','InactiveNewsPost')->name('inactive.news.post');
+Route::get('/active/news/post/{id}','ActiveNewsPost')->name('active.news.post');
 });
 
 }); // End Admin Middleware

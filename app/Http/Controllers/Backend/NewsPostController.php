@@ -157,5 +157,29 @@ class NewsPostController extends Controller
         
     } //End function
 
+    public function InactiveNewsPost($id){
 
+        NewsPost::findOrFail($id)->update(['status' => 0]);
+
+        $notification = [
+                'message' => 'News Post is Inactive Successfully',
+                'alert-type' => 'info'
+            ];
+        
+        return redirect()->back()->with($notification);
+        
+    } //End function
+
+    public function ActiveNewsPost($id){
+
+        NewsPost::findOrFail($id)->update(['status' => 1]);
+
+        $notification = [
+                'message' => 'News Post is Activeted Successfully',
+                'alert-type' => 'info'
+            ];
+        
+        return redirect()->back()->with($notification);
+        
+    } //End function
 }
