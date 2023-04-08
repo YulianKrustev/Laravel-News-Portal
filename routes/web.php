@@ -116,7 +116,7 @@ Route::get('/add/news/post','AddNewsPost')->name('add.news.post');
 Route::post('/store/news/post','StoreNewsPost')->name('store.news.post');
 Route::get('/edit/news/post/{id}','EditNewsPost')->name('edit.news.post');
 Route::post('/update/news/post','UpdateNewsPost')->name('update.news.post');
-// Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+Route::get('/delete/news/post/{id}','DeleteNewsPost')->name('delete.news.post');
 
 });
 
