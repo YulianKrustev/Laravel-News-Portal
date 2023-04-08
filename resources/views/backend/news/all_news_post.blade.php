@@ -1,5 +1,7 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+
+
     <div class="content">
 
         <!-- Start Content-->
@@ -14,11 +16,93 @@
                                 <a href="{{ route('add.news.post') }}" class="btn btn-blue waves-effect waves-light">Add News Post</a>
                             </ol>
                         </div>
-                        <h4 class="page-title">All News Post</h4>
+                        
                     </div>
                 </div>
             </div>
             <!-- end page title -->
+            <br>
+            <div class="row">
+            <div class="col-md-6 col-xl-3">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-primary border-primary border shadow">
+                                    <i class="fe-heart font-22 avatar-title text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ count($allnews) }}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">All News Post</p>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+                    </div>
+                </div> <!-- end widget-rounded-circle-->
+            </div> <!-- end col-->
+
+            <div class="col-md-6 col-xl-3">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-success border-success border shadow">
+                                    <i class="fe-thumbs-up font-22 avatar-title text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ count($activenews) }}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">Active News</p>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+                    </div>
+                </div> <!-- end widget-rounded-circle-->
+            </div> <!-- end col-->
+
+            <div class="col-md-6 col-xl-3">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-info border-info border shadow">
+                                    <i class="fe-thumbs-down font-22 avatar-title text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ count($inactivenews) }}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">Inactive news</p>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+                    </div>
+                </div> <!-- end widget-rounded-circle-->
+            </div> <!-- end col-->
+
+            <div class="col-md-6 col-xl-3">
+                <div class="widget-rounded-circle card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="avatar-lg rounded-circle bg-warning border-warning border shadow">
+                                    <i class="fe-eye font-22 avatar-title text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ count($breakingnews) }}</span></h3>
+                                    <p class="text-muted mb-1 text-truncate">Breaking News</p>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+                    </div>
+                </div> <!-- end widget-rounded-circle-->
+            </div> <!-- end col-->
+        </div>
 
             <div class="row">
                 <div class="col-12">

@@ -51,11 +51,9 @@
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Sub Category </label>
                                         <select name='subcategory_id' class="form-select" id="example-select">
-                                            <option> Select One SubCategory </option>
+                                            <option></option>
 
-                                            @foreach ($subcategories as $subcategory)
-                                                <option {{ $news_post->subcategory_id == $subcategory->id ? 'selected' : ''}} value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
-                                            @endforeach
+                                            
 
 
                                         </select>
